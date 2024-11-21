@@ -6,16 +6,45 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private static Player instance;
-    public static Player Instance;
+    public static Player Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Player>();
+            }
+            return instance;
+        }
+    }
 
     public List<Skill> playerskills = new List<Skill>();
 
     public List<Skill> selectskill;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        selectskill = new List<Skill>(4);
+        for (int i = 0; i < 4; i++)
+        {
+            selectskill.Add(null);
+        }
+    }
 
     private void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             selectskill[0].onskill();
         }
@@ -33,8 +62,9 @@ public class Player : MonoBehaviour
         }
 
     }
-    public void selectskillset(skillQWER qwer,Skill skill)
+    public void selectskillset(skillQWER qwer, Skill skill)
     {
+
         switch (qwer)
         {
             case skillQWER.Q:
@@ -52,7 +82,7 @@ public class Player : MonoBehaviour
             default:
                 break;
         }
-        
+
 
     }
 }

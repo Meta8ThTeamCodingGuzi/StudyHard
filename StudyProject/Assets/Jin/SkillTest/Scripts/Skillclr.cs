@@ -37,7 +37,7 @@ public class Skillclr : MonoBehaviour
         gg.gameObject.SetActive(true);
         foreach (Skill skill in Player.Instance.playerskills)
         {
-            SkillIcon icon = Instantiate(skills, gg.parent);
+            SkillIcon icon = Instantiate(skills, gg);
             icon.Initialize(skill,skillKey,onselectd);
            
         }
