@@ -1,4 +1,3 @@
-using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +6,6 @@ public class InventoryManager : MonoBehaviour
 {
     public GameObject InventoryUi;
     private bool InventoryOpen;
-
-
 
     public void Start()
     {
