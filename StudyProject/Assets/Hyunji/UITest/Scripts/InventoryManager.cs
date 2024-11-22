@@ -1,18 +1,43 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject InventoryUi;
+    private bool InventoryOpen;
+
+
+
+    public void Start()
     {
-        
+        InventoryOpen = false;
+        InventoryUi.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+
+            if (InventoryOpen == false)
+            {
+                InventoryUi.gameObject.SetActive(true);
+            }
+
+            else
+            {
+                InventoryUi.gameObject.SetActive(false);
+            }
+
+        }
+
+
     }
+
+
+
+
+
 }
