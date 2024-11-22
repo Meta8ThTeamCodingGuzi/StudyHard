@@ -12,6 +12,11 @@ public class PoolManager : SingletonManager<PoolManager>, IInitializable
         base.Awake();
     }
 
+    private void Start()
+    {
+        Initialize();
+    }
+
     public void Initialize()
     {
         try

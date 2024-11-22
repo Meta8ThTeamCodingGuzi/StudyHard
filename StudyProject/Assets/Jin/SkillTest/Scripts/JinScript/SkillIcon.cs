@@ -14,10 +14,6 @@ public class SkillIcon : MonoBehaviour
      
     public void Initialize(Skill sd,skillQWER skillQWER,Action<Skill> onselectd) 
     {
-        
-        //스킬 데이타 읽음
-        //this.data = sd;
-        //이미지 세팅
         this.data = sd;
         image = GetComponent<Image>();
         image.sprite = sd.image;
